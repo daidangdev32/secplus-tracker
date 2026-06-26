@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- viewport-fit=cover lets us pad around the iPhone notch / home indicator -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0f1d" />
+  <meta name="description" content="Study tracker for the Professor Messer CompTIA Security+ SY0-701 playlist." />
+
+  <!-- iOS: launch full-screen from the home screen with our own status bar style -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="SecPlus" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>SecPlus Tracker</title>
+</head>
+<body>
+  <!-- Boot / loading state, shown until we know whether the user is signed in. -->
+  <div id="boot" class="boot">
+    <div class="boot-mark" aria-hidden="true"></div>
+    <p id="boot-msg">Loading…</p>
+  </div>
+
+  <!-- Sign-in screen. The app does not work anonymously: cross-device sync needs
+       one shared Google identity. -->
+  <section id="signin" class="signin" hidden>
+    <div class="signin-card">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <h1>SecPlus Tracker</h1>
+      <p class="signin-sub">Work the Professor Messer <strong>SY0-701</strong> playlist, track your
+        confidence, and review your weak spots — synced across your iPhone and iPad.</p>
+      <button id="signin-btn" class="btn-primary btn-google">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#fff" d="M21.35 11.1H12v2.96h5.35c-.23 1.4-1.62 4.1-5.35 4.1-3.22 0-5.85-2.66-5.85-5.94S8.78 6.28 12 6.28c1.84 0 3.07.78 3.77 1.46l2.57-2.48C16.7 3.66 14.55 2.7 12 2.7 6.97 2.7 2.9 6.77 2.9 11.8s4.07 9.1 9.1 9.1c5.25 0 8.72-3.69 8.72-8.88 0-.6-.07-1.05-.16-1.5z"/></svg>
+        Sign in with Google
+      </button>
+      <p id="signin-error" class="signin-error" hidden></p>
+      <p class="signin-foot">Watching ≠ exam-ready. Use this to stay on pace — let practice tests be
+        your real go/no-go.</p>
+    </div>
+  </section>
+
+  <!-- Main app. Hidden until signed in. -->
+  <div id="app" class="app" hidden>
+    <header class="topbar">
+      <div class="topbar-title">SecPlus</div>
+      <button id="settings-btn" class="icon-btn" aria-label="Settings and profile">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M19.14 12.94a7.49 7.49 0 0 0 .05-.94 7.49 7.49 0 0 0-.05-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7 7 0 0 0-1.62-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54a7 7 0 0 0-1.62.94l-2.39-.96a.5.5 0 0 0-.6.22L2.27 8.84a.5.5 0 0 0 .12.64l2.03 1.58c-.03.31-.05.62-.05.94s.02.63.05.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.14.24.42.32.66.22l2.39-.96c.5.38 1.04.7 1.62.94l.36 2.54c.04.24.25.42.5.42h3.84c.25 0 .46-.18.5-.42l.36-2.54c.58-.24 1.12-.56 1.62-.94l2.39.96c.24.1.52.02.66-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58ZM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2Z"/></svg>
+      </button>
+    </header>
+
+    <main id="view" class="view" aria-live="polite"></main>
+
+    <nav class="tabbar" role="tablist" aria-label="Sections">
+      <button class="tab" data-tab="today" role="tab" aria-selected="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>
+        <span>Today</span>
+      </button>
+      <button class="tab" data-tab="roadmap" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h18v2H3V5Zm0 6h12v2H3v-2Zm0 6h18v2H3v-2Z"/></svg>
+        <span>Roadmap</span>
+      </button>
+      <button class="tab" data-tab="weakspots" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6l-8-4Zm0 5a2 2 0 0 1 2 2c0 .9-.6 1.5-1.2 1.9-.3.2-.3.3-.3.6V13h-1v-1.6c0-.8.4-1.3 1-1.7.4-.3.5-.5.5-.7a1 1 0 0 0-2 0H10a2 2 0 0 1 2-2Zm-.5 8h1v1.5h-1V15Z"/></svg>
+        <span>Weakspots</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Settings sheet (exam date + sign out). Toggled by the gear button. -->
+  <div id="settings-sheet" class="sheet" hidden>
+    <div class="sheet-backdrop" data-close-sheet></div>
+    <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Settings">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <h2>Settings</h2>
+      <label class="field">
+        <span>Exam date</span>
+        <input type="date" id="exam-date" />
+      </label>
+      <p class="field-hint">Your daily pace is sized to finish the unwatched videos by this date.</p>
+      <div id="account-row" class="account-row"></div>
+      <button id="signout-btn" class="btn-secondary">Sign out</button>
+      <button class="btn-ghost" data-close-sheet>Close</button>
+    </div>
+  </div>
+
+  <!-- Toast for small confirmations (graduations, errors). -->
+  <div id="toast" class="toast" hidden></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

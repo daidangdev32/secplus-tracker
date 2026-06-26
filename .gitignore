@@ -1,0 +1,8 @@
+# Editor / OS / tooling — not part of the deployed app
+.claude/
+.DS_Store
+*.log
+
+# Node (only if you ever add tooling; the app itself has no deps)
+node_modules/
+npm-debug.log*

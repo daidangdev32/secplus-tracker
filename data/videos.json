@@ -1,0 +1,1091 @@
+[
+  {
+    "id": "KiEptGbnEBc",
+    "title": "How to Pass Your SY0-701 Security+ Exam in 2026",
+    "domain": 0,
+    "objective": null,
+    "position": 1,
+    "durationSec": 607,
+    "url": "https://www.youtube.com/watch?v=KiEptGbnEBc"
+  },
+  {
+    "id": "STM3EUvL7wg",
+    "title": "Security Controls - CompTIA Security+ SY0-701 - 1.1",
+    "domain": 1,
+    "objective": "1.1",
+    "position": 2,
+    "durationSec": 709,
+    "url": "https://www.youtube.com/watch?v=STM3EUvL7wg"
+  },
+  {
+    "id": "SBcDGb9l6yo",
+    "title": "The CIA Triad - CompTIA Security+ SY0-701 - 1.2",
+    "domain": 1,
+    "objective": "1.2",
+    "position": 3,
+    "durationSec": 318,
+    "url": "https://www.youtube.com/watch?v=SBcDGb9l6yo"
+  },
+  {
+    "id": "XxnCxPEllMg",
+    "title": "Non-repudiation - CompTIA Security+ SY0-701 - 1.2",
+    "domain": 1,
+    "objective": "1.2",
+    "position": 4,
+    "durationSec": 478,
+    "url": "https://www.youtube.com/watch?v=XxnCxPEllMg"
+  },
+  {
+    "id": "AhaZtj5P2a8",
+    "title": "Authentication, Authorization, and Accounting - CompTIA Security+ SY0-701 - 1.2",
+    "domain": 1,
+    "objective": "1.2",
+    "position": 5,
+    "durationSec": 544,
+    "url": "https://www.youtube.com/watch?v=AhaZtj5P2a8"
+  },
+  {
+    "id": "cuTVyyS5C7M",
+    "title": "Gap Analysis - CompTIA Security+ SY0-701 - 1.2",
+    "domain": 1,
+    "objective": "1.2",
+    "position": 6,
+    "durationSec": 405,
+    "url": "https://www.youtube.com/watch?v=cuTVyyS5C7M"
+  },
+  {
+    "id": "zC_Pndpg8-c",
+    "title": "Zero Trust - CompTIA Security+ SY0-701 - 1.2",
+    "domain": 1,
+    "objective": "1.2",
+    "position": 7,
+    "durationSec": 605,
+    "url": "https://www.youtube.com/watch?v=zC_Pndpg8-c"
+  },
+  {
+    "id": "YtT8q2mUM9c",
+    "title": "Physical Security - CompTIA SY0-701 Security+ - 1.2",
+    "domain": 1,
+    "objective": "1.2",
+    "position": 8,
+    "durationSec": 498,
+    "url": "https://www.youtube.com/watch?v=YtT8q2mUM9c"
+  },
+  {
+    "id": "X_qfMVty4ts",
+    "title": "Deception and Disruption - CompTIA Security+SY0-701 - 1.2",
+    "domain": 1,
+    "objective": "1.2",
+    "position": 9,
+    "durationSec": 271,
+    "url": "https://www.youtube.com/watch?v=X_qfMVty4ts"
+  },
+  {
+    "id": "48wRbMdHFVI",
+    "title": "Change Management - CompTIA Security+ SY0-701 - 1.3",
+    "domain": 1,
+    "objective": "1.3",
+    "position": 10,
+    "durationSec": 682,
+    "url": "https://www.youtube.com/watch?v=48wRbMdHFVI"
+  },
+  {
+    "id": "H9TYNjcpl-0",
+    "title": "Technical Change Management - CompTIA Security+ SY0-701 - 1.3",
+    "domain": 1,
+    "objective": "1.3",
+    "position": 11,
+    "durationSec": 654,
+    "url": "https://www.youtube.com/watch?v=H9TYNjcpl-0"
+  },
+  {
+    "id": "xHAMEF7-inQ",
+    "title": "Public Key Infrastructure - CompTIA Security+ Sy0-701 - 1.4",
+    "domain": 1,
+    "objective": "1.4",
+    "position": 12,
+    "durationSec": 548,
+    "url": "https://www.youtube.com/watch?v=xHAMEF7-inQ"
+  },
+  {
+    "id": "jpsc4c7lntw",
+    "title": "Encrypting Data - CompTIA Security+ SY0-701 - 1.4",
+    "domain": 1,
+    "objective": "1.4",
+    "position": 13,
+    "durationSec": 588,
+    "url": "https://www.youtube.com/watch?v=jpsc4c7lntw"
+  },
+  {
+    "id": "U6BWn81P5Ec",
+    "title": "Key Exchange - CompTIA Security+ SY0-701 - 1.4",
+    "domain": 1,
+    "objective": "1.4",
+    "position": 14,
+    "durationSec": 219,
+    "url": "https://www.youtube.com/watch?v=U6BWn81P5Ec"
+  },
+  {
+    "id": "u61J0xR_XPU",
+    "title": "Encryption Technologies - CompTIA Security+ SY0-701 - 1.4",
+    "domain": 1,
+    "objective": "1.4",
+    "position": 15,
+    "durationSec": 413,
+    "url": "https://www.youtube.com/watch?v=u61J0xR_XPU"
+  },
+  {
+    "id": "LfuTMzZke4g",
+    "title": "Obfuscation - CompTIA Security+ SY0-701 - 1.4",
+    "domain": 1,
+    "objective": "1.4",
+    "position": 16,
+    "durationSec": 480,
+    "url": "https://www.youtube.com/watch?v=LfuTMzZke4g"
+  },
+  {
+    "id": "EcGmQjl6XEo",
+    "title": "Hashing and Digital Signatures - CompTIA Security+ SY0-701 - 1.4",
+    "domain": 1,
+    "objective": "1.4",
+    "position": 17,
+    "durationSec": 625,
+    "url": "https://www.youtube.com/watch?v=EcGmQjl6XEo"
+  },
+  {
+    "id": "-wqU_2ToP1M",
+    "title": "Blockchain Technology - CompTIA Security+ SY0-701 - 1.4",
+    "domain": 1,
+    "objective": "1.4",
+    "position": 18,
+    "durationSec": 142,
+    "url": "https://www.youtube.com/watch?v=-wqU_2ToP1M"
+  },
+  {
+    "id": "cLa94BZH_9s",
+    "title": "Certificates - CompTIA Security+ SY0-701 - 1.4",
+    "domain": 1,
+    "objective": "1.4",
+    "position": 19,
+    "durationSec": 878,
+    "url": "https://www.youtube.com/watch?v=cLa94BZH_9s"
+  },
+  {
+    "id": "6xUH0t6ugIM",
+    "title": "Threat Actors - CompTIA Security+ SY0-701 - 2.1",
+    "domain": 2,
+    "objective": "2.1",
+    "position": 20,
+    "durationSec": 623,
+    "url": "https://www.youtube.com/watch?v=6xUH0t6ugIM"
+  },
+  {
+    "id": "4lAbGpTDZ18",
+    "title": "Common Threat Vectors - CompTIA Security+ SY0-701 - 2.2",
+    "domain": 2,
+    "objective": "2.2",
+    "position": 21,
+    "durationSec": 1034,
+    "url": "https://www.youtube.com/watch?v=4lAbGpTDZ18"
+  },
+  {
+    "id": "9SD6DRCKZFU",
+    "title": "Phishing - CompTIA Security+ SY0-701 - 2.2",
+    "domain": 2,
+    "objective": "2.2",
+    "position": 22,
+    "durationSec": 392,
+    "url": "https://www.youtube.com/watch?v=9SD6DRCKZFU"
+  },
+  {
+    "id": "X3yoNAVuKwA",
+    "title": "Impersonation - CompTIA Security+ SY0-701 - 2.2",
+    "domain": 2,
+    "objective": "2.2",
+    "position": 23,
+    "durationSec": 352,
+    "url": "https://www.youtube.com/watch?v=X3yoNAVuKwA"
+  },
+  {
+    "id": "z413PV6l_Ys",
+    "title": "Watering Hole Attacks - CompTIA Security+ SY0-701 - 2.2",
+    "domain": 2,
+    "objective": "2.2",
+    "position": 24,
+    "durationSec": 252,
+    "url": "https://www.youtube.com/watch?v=z413PV6l_Ys"
+  },
+  {
+    "id": "akoDmeV3LQo",
+    "title": "Other Social Engineering Attacks - CompTIA Security+ SY0-701 - 2.2",
+    "domain": 2,
+    "objective": "2.2",
+    "position": 25,
+    "durationSec": 209,
+    "url": "https://www.youtube.com/watch?v=akoDmeV3LQo"
+  },
+  {
+    "id": "kBcTczu8FsM",
+    "title": "Memory Injections - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 26,
+    "durationSec": 159,
+    "url": "https://www.youtube.com/watch?v=kBcTczu8FsM"
+  },
+  {
+    "id": "0-qeeI5jTqU",
+    "title": "Buffer Overflows - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 27,
+    "durationSec": 217,
+    "url": "https://www.youtube.com/watch?v=0-qeeI5jTqU"
+  },
+  {
+    "id": "MKptc1lPSw8",
+    "title": "Race Conditions - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 28,
+    "durationSec": 298,
+    "url": "https://www.youtube.com/watch?v=MKptc1lPSw8"
+  },
+  {
+    "id": "KbtUrdBy9Yo",
+    "title": "Malicious Updates - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 29,
+    "durationSec": 345,
+    "url": "https://www.youtube.com/watch?v=KbtUrdBy9Yo"
+  },
+  {
+    "id": "narir8qpGq8",
+    "title": "Operating System Vulnerabilities - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 30,
+    "durationSec": 249,
+    "url": "https://www.youtube.com/watch?v=narir8qpGq8"
+  },
+  {
+    "id": "qFUOLkEk8AQ",
+    "title": "SQL Injection - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 31,
+    "durationSec": 309,
+    "url": "https://www.youtube.com/watch?v=qFUOLkEk8AQ"
+  },
+  {
+    "id": "PKgw0CLZIhE",
+    "title": "Cross-site Scripting - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 32,
+    "durationSec": 514,
+    "url": "https://www.youtube.com/watch?v=PKgw0CLZIhE"
+  },
+  {
+    "id": "TaTaEvqjjDM",
+    "title": "Hardware Vulnerabilities - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 33,
+    "durationSec": 387,
+    "url": "https://www.youtube.com/watch?v=TaTaEvqjjDM"
+  },
+  {
+    "id": "t2JrPrzRDLA",
+    "title": "Virtualization Vulnerabilities - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 34,
+    "durationSec": 325,
+    "url": "https://www.youtube.com/watch?v=t2JrPrzRDLA"
+  },
+  {
+    "id": "V2DCYO-sWRQ",
+    "title": "Cloud-specific Vulnerabilities - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 35,
+    "durationSec": 246,
+    "url": "https://www.youtube.com/watch?v=V2DCYO-sWRQ"
+  },
+  {
+    "id": "WqvCJLpwExY",
+    "title": "Supply Chain Vulnerabilities - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 36,
+    "durationSec": 552,
+    "url": "https://www.youtube.com/watch?v=WqvCJLpwExY"
+  },
+  {
+    "id": "NBKzlUqzVmE",
+    "title": "Misconfiguration Vulnerabilities - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 37,
+    "durationSec": 429,
+    "url": "https://www.youtube.com/watch?v=NBKzlUqzVmE"
+  },
+  {
+    "id": "DRfAwwdzYpU",
+    "title": "Mobile Device Vulnerabilities - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 38,
+    "durationSec": 203,
+    "url": "https://www.youtube.com/watch?v=DRfAwwdzYpU"
+  },
+  {
+    "id": "FDFxGLnZtoY",
+    "title": "Zero-day Vulnerabilities - CompTIA Security+ SY0-701 - 2.3",
+    "domain": 2,
+    "objective": "2.3",
+    "position": 39,
+    "durationSec": 182,
+    "url": "https://www.youtube.com/watch?v=FDFxGLnZtoY"
+  },
+  {
+    "id": "-eZs8wjjGGE",
+    "title": "An Overview of Malware - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 40,
+    "durationSec": 366,
+    "url": "https://www.youtube.com/watch?v=-eZs8wjjGGE"
+  },
+  {
+    "id": "Su8ANmAoerU",
+    "title": "Viruses and Worms - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 41,
+    "durationSec": 354,
+    "url": "https://www.youtube.com/watch?v=Su8ANmAoerU"
+  },
+  {
+    "id": "-VmI3xFJw78",
+    "title": "Spyware and Bloatware - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 42,
+    "durationSec": 261,
+    "url": "https://www.youtube.com/watch?v=-VmI3xFJw78"
+  },
+  {
+    "id": "nu27ovJ5rqw",
+    "title": "Other Malware Types - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 43,
+    "durationSec": 452,
+    "url": "https://www.youtube.com/watch?v=nu27ovJ5rqw"
+  },
+  {
+    "id": "oIpOuTX2HRs",
+    "title": "Physical Attacks - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 44,
+    "durationSec": 244,
+    "url": "https://www.youtube.com/watch?v=oIpOuTX2HRs"
+  },
+  {
+    "id": "Z7OntvK--PQ",
+    "title": "Denial of Service - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 45,
+    "durationSec": 367,
+    "url": "https://www.youtube.com/watch?v=Z7OntvK--PQ"
+  },
+  {
+    "id": "BoxeL5ybOXI",
+    "title": "DNS Attacks - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 46,
+    "durationSec": 537,
+    "url": "https://www.youtube.com/watch?v=BoxeL5ybOXI"
+  },
+  {
+    "id": "tSLqrKhUvts",
+    "title": "Wireless Attacks - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 47,
+    "durationSec": 475,
+    "url": "https://www.youtube.com/watch?v=tSLqrKhUvts"
+  },
+  {
+    "id": "M_Af6_8JTuo",
+    "title": "On-path Attacks - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 48,
+    "durationSec": 330,
+    "url": "https://www.youtube.com/watch?v=M_Af6_8JTuo"
+  },
+  {
+    "id": "ai6qS13gKRo",
+    "title": "Replay Attacks - CompTIA Security+ SY0-701- 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 49,
+    "durationSec": 345,
+    "url": "https://www.youtube.com/watch?v=ai6qS13gKRo"
+  },
+  {
+    "id": "xDhUBQ_lnUA",
+    "title": "Malicious Code - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 50,
+    "durationSec": 220,
+    "url": "https://www.youtube.com/watch?v=xDhUBQ_lnUA"
+  },
+  {
+    "id": "yRSqIGjeb7s",
+    "title": "Application Attacks - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 51,
+    "durationSec": 708,
+    "url": "https://www.youtube.com/watch?v=yRSqIGjeb7s"
+  },
+  {
+    "id": "7aJaEQy6Yoc",
+    "title": "Cryptographic Attacks - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 52,
+    "durationSec": 571,
+    "url": "https://www.youtube.com/watch?v=7aJaEQy6Yoc"
+  },
+  {
+    "id": "-ZfbifHwEVE",
+    "title": "Password Attacks - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 53,
+    "durationSec": 436,
+    "url": "https://www.youtube.com/watch?v=-ZfbifHwEVE"
+  },
+  {
+    "id": "x72hG9GvkaQ",
+    "title": "Indicators of Compromise - CompTIA Security+ SY0-701 - 2.4",
+    "domain": 2,
+    "objective": "2.4",
+    "position": 54,
+    "durationSec": 659,
+    "url": "https://www.youtube.com/watch?v=x72hG9GvkaQ"
+  },
+  {
+    "id": "yDeDGCh_PDs",
+    "title": "Segmentation and Access Control - CompTIA Security+ SY0-701 - 2.5",
+    "domain": 2,
+    "objective": "2.5",
+    "position": 55,
+    "durationSec": 366,
+    "url": "https://www.youtube.com/watch?v=yDeDGCh_PDs"
+  },
+  {
+    "id": "Fc8ZJfmapbI",
+    "title": "Mitigation Techniques - CompTIA Security+ SY0-701 - 2.5",
+    "domain": 2,
+    "objective": "2.5",
+    "position": 56,
+    "durationSec": 411,
+    "url": "https://www.youtube.com/watch?v=Fc8ZJfmapbI"
+  },
+  {
+    "id": "wXoC46Qr_9Q",
+    "title": "Hardening Techniques - CompTIA Security+ SY0-701 - 2.5",
+    "domain": 2,
+    "objective": "2.5",
+    "position": 57,
+    "durationSec": 731,
+    "url": "https://www.youtube.com/watch?v=wXoC46Qr_9Q"
+  },
+  {
+    "id": "8qpQ8Q6xxiU",
+    "title": "Cloud Infrastructures - CompTIA Security+ SY0-701 - 3.1",
+    "domain": 3,
+    "objective": "3.1",
+    "position": 58,
+    "durationSec": 596,
+    "url": "https://www.youtube.com/watch?v=8qpQ8Q6xxiU"
+  },
+  {
+    "id": "jd001Hj7XWM",
+    "title": "Network Infrastructure Concepts - CompTIA Security+ SY0-701 - 3.1",
+    "domain": 3,
+    "objective": "3.1",
+    "position": 59,
+    "durationSec": 416,
+    "url": "https://www.youtube.com/watch?v=jd001Hj7XWM"
+  },
+  {
+    "id": "HDiNPPrGhzE",
+    "title": "Other Infrastructure Concepts - CompTIA Security+ SY0-701 - 3.1",
+    "domain": 3,
+    "objective": "3.1",
+    "position": 60,
+    "durationSec": 864,
+    "url": "https://www.youtube.com/watch?v=HDiNPPrGhzE"
+  },
+  {
+    "id": "Ap3Z_0ZdqpQ",
+    "title": "Infrastructure Considerations - CompTIA Security+ SY0-701 - 3.1",
+    "domain": 3,
+    "objective": "3.1",
+    "position": 61,
+    "durationSec": 828,
+    "url": "https://www.youtube.com/watch?v=Ap3Z_0ZdqpQ"
+  },
+  {
+    "id": "l64La1xYXL4",
+    "title": "Secure Infrastructures - CompTIA Security+ SY0-701 - 3.2",
+    "domain": 3,
+    "objective": "3.2",
+    "position": 62,
+    "durationSec": 354,
+    "url": "https://www.youtube.com/watch?v=l64La1xYXL4"
+  },
+  {
+    "id": "7QuYupuic3Q",
+    "title": "Intrusion Prevention - CompTIA Security+ SY0-701 - 3.2",
+    "domain": 3,
+    "objective": "3.2",
+    "position": 63,
+    "durationSec": 314,
+    "url": "https://www.youtube.com/watch?v=7QuYupuic3Q"
+  },
+  {
+    "id": "WlOslEy3ztg",
+    "title": "Network Appliances - CompTIA Security+ SY0-701 - 3.2",
+    "domain": 3,
+    "objective": "3.2",
+    "position": 64,
+    "durationSec": 716,
+    "url": "https://www.youtube.com/watch?v=WlOslEy3ztg"
+  },
+  {
+    "id": "QhLQ6J4satw",
+    "title": "Port Security - CompTIA Security+ SY0-701 - 3.2",
+    "domain": 3,
+    "objective": "3.2",
+    "position": 65,
+    "durationSec": 230,
+    "url": "https://www.youtube.com/watch?v=QhLQ6J4satw"
+  },
+  {
+    "id": "mq1HRM-zGtQ",
+    "title": "Firewall Types - CompTIA Security+ SY0-701 - 3.2",
+    "domain": 3,
+    "objective": "3.2",
+    "position": 66,
+    "durationSec": 480,
+    "url": "https://www.youtube.com/watch?v=mq1HRM-zGtQ"
+  },
+  {
+    "id": "uU3e_ntg-3g",
+    "title": "Secure Communication - CompTIA Security+ SY0-701 - 3.2",
+    "domain": 3,
+    "objective": "3.2",
+    "position": 67,
+    "durationSec": 595,
+    "url": "https://www.youtube.com/watch?v=uU3e_ntg-3g"
+  },
+  {
+    "id": "R0W0_gZCVzk",
+    "title": "Data Types and Classifications - CompTIA Security+ SY0-701 - 3.3",
+    "domain": 3,
+    "objective": "3.3",
+    "position": 68,
+    "durationSec": 354,
+    "url": "https://www.youtube.com/watch?v=R0W0_gZCVzk"
+  },
+  {
+    "id": "71RQaYQ4QSw",
+    "title": "States of Data - CompTIA Security+ SY0-701 - 3.3",
+    "domain": 3,
+    "objective": "3.3",
+    "position": 69,
+    "durationSec": 367,
+    "url": "https://www.youtube.com/watch?v=71RQaYQ4QSw"
+  },
+  {
+    "id": "leX_Qa7wqB4",
+    "title": "Protecting Data - CompTIA Security+ SY0-701 - 3.3",
+    "domain": 3,
+    "objective": "3.3",
+    "position": 70,
+    "durationSec": 868,
+    "url": "https://www.youtube.com/watch?v=leX_Qa7wqB4"
+  },
+  {
+    "id": "sb0dRaQbuBA",
+    "title": "Resiliency - CompTIA Security+ SY0-701 - 3.4",
+    "domain": 3,
+    "objective": "3.4",
+    "position": 71,
+    "durationSec": 582,
+    "url": "https://www.youtube.com/watch?v=sb0dRaQbuBA"
+  },
+  {
+    "id": "WGlT6-gNwqY",
+    "title": "Capacity Planning - CompTIA Security+ SY0-701 - 3.4",
+    "domain": 3,
+    "objective": "3.4",
+    "position": 72,
+    "durationSec": 233,
+    "url": "https://www.youtube.com/watch?v=WGlT6-gNwqY"
+  },
+  {
+    "id": "IhT7Odu4xHc",
+    "title": "Recovery Testing - CompTIA Security+ SY0-701 - 3.4",
+    "domain": 3,
+    "objective": "3.4",
+    "position": 73,
+    "durationSec": 318,
+    "url": "https://www.youtube.com/watch?v=IhT7Odu4xHc"
+  },
+  {
+    "id": "8mGSwRScqIM",
+    "title": "Backups - CompTIA Security+ SY0-701 - 3.4",
+    "domain": 3,
+    "objective": "3.4",
+    "position": 74,
+    "durationSec": 736,
+    "url": "https://www.youtube.com/watch?v=8mGSwRScqIM"
+  },
+  {
+    "id": "-EY45MimSBM",
+    "title": "Power Resiliency - CompTIA Security+ SY0-701 - 3.4",
+    "domain": 3,
+    "objective": "3.4",
+    "position": 75,
+    "durationSec": 242,
+    "url": "https://www.youtube.com/watch?v=-EY45MimSBM"
+  },
+  {
+    "id": "BWPJD9Eb9iE",
+    "title": "Secure Baselines - CompTIA Security+ SY0-701 - 4.1",
+    "domain": 4,
+    "objective": "4.1",
+    "position": 76,
+    "durationSec": 251,
+    "url": "https://www.youtube.com/watch?v=BWPJD9Eb9iE"
+  },
+  {
+    "id": "YQKbs0ug0XQ",
+    "title": "Hardening Targets - CompTIA Security+ SY0-701 - 4.1",
+    "domain": 4,
+    "objective": "4.1",
+    "position": 77,
+    "durationSec": 611,
+    "url": "https://www.youtube.com/watch?v=YQKbs0ug0XQ"
+  },
+  {
+    "id": "iAR6SgvtezY",
+    "title": "Securing Wireless and Mobile - CompTIA Security+ SY0-701 - 4.1",
+    "domain": 4,
+    "objective": "4.1",
+    "position": 78,
+    "durationSec": 538,
+    "url": "https://www.youtube.com/watch?v=iAR6SgvtezY"
+  },
+  {
+    "id": "KaqKoKNEKnE",
+    "title": "Wireless Security Settings - CompTIA Security+ SY0-701 - 4.1",
+    "domain": 4,
+    "objective": "4.1",
+    "position": 79,
+    "durationSec": 655,
+    "url": "https://www.youtube.com/watch?v=KaqKoKNEKnE"
+  },
+  {
+    "id": "fFvXy3WkLpA",
+    "title": "Application Security - CompTIA Security+ SY0-701 - 4.1",
+    "domain": 4,
+    "objective": "4.1",
+    "position": 80,
+    "durationSec": 506,
+    "url": "https://www.youtube.com/watch?v=fFvXy3WkLpA"
+  },
+  {
+    "id": "BJ2UMB4a04g",
+    "title": "Asset Management - CompTIA Security+ SY0-701 - 4.2",
+    "domain": 4,
+    "objective": "4.2",
+    "position": 81,
+    "durationSec": 517,
+    "url": "https://www.youtube.com/watch?v=BJ2UMB4a04g"
+  },
+  {
+    "id": "9B0mtWk_AM0",
+    "title": "Vulnerability Scanning - CompTIA Security+ SY0-701 - 4.3",
+    "domain": 4,
+    "objective": "4.3",
+    "position": 82,
+    "durationSec": 465,
+    "url": "https://www.youtube.com/watch?v=9B0mtWk_AM0"
+  },
+  {
+    "id": "86fruE9jkKk",
+    "title": "Threat Intelligence - CompTIA Security+ SY0-701 - 4.3",
+    "domain": 4,
+    "objective": "4.3",
+    "position": 83,
+    "durationSec": 286,
+    "url": "https://www.youtube.com/watch?v=86fruE9jkKk"
+  },
+  {
+    "id": "-LevHAzXgFs",
+    "title": "Penetration Testing - CompTIA Security+ SY0-701 - 4.3",
+    "domain": 4,
+    "objective": "4.3",
+    "position": 84,
+    "durationSec": 381,
+    "url": "https://www.youtube.com/watch?v=-LevHAzXgFs"
+  },
+  {
+    "id": "eyVy1gKCuAU",
+    "title": "Analyzing Vulnerabilities - CompTIA Security+ SY0-701 - 4.3",
+    "domain": 4,
+    "objective": "4.3",
+    "position": 85,
+    "durationSec": 629,
+    "url": "https://www.youtube.com/watch?v=eyVy1gKCuAU"
+  },
+  {
+    "id": "P9xakfmX70c",
+    "title": "Vulnerability Remediation - CompTIA Security+ SY0-701 - 4.3",
+    "domain": 4,
+    "objective": "4.3",
+    "position": 86,
+    "durationSec": 525,
+    "url": "https://www.youtube.com/watch?v=P9xakfmX70c"
+  },
+  {
+    "id": "np2WI_rM-Ok",
+    "title": "Security Monitoring - CompTIA Security+ SY0-701 - 4.4",
+    "domain": 4,
+    "objective": "4.4",
+    "position": 87,
+    "durationSec": 627,
+    "url": "https://www.youtube.com/watch?v=np2WI_rM-Ok"
+  },
+  {
+    "id": "nNiNTviiacU",
+    "title": "Security Tools - CompTIA Security+ SY0-701 - 4.4",
+    "domain": 4,
+    "objective": "4.4",
+    "position": 88,
+    "durationSec": 846,
+    "url": "https://www.youtube.com/watch?v=nNiNTviiacU"
+  },
+  {
+    "id": "VgNyh4HEqSU",
+    "title": "Firewalls - CompTIA Security+ SY0-701 - 4.5",
+    "domain": 4,
+    "objective": "4.5",
+    "position": 89,
+    "durationSec": 691,
+    "url": "https://www.youtube.com/watch?v=VgNyh4HEqSU"
+  },
+  {
+    "id": "I_c0D49uCwQ",
+    "title": "Web Filtering - CompTIA Security+ SY0-701 - 4.5",
+    "domain": 4,
+    "objective": "4.5",
+    "position": 90,
+    "durationSec": 600,
+    "url": "https://www.youtube.com/watch?v=I_c0D49uCwQ"
+  },
+  {
+    "id": "4dpTyRM6BU8",
+    "title": "Operating System Security - CompTIA Security+ SY0-701 - 4.5",
+    "domain": 4,
+    "objective": "4.5",
+    "position": 91,
+    "durationSec": 202,
+    "url": "https://www.youtube.com/watch?v=4dpTyRM6BU8"
+  },
+  {
+    "id": "9NAKCyOtFH0",
+    "title": "Secure Protocols - CompTIA Security+ SY0-701 - 4.5",
+    "domain": 4,
+    "objective": "4.5",
+    "position": 92,
+    "durationSec": 287,
+    "url": "https://www.youtube.com/watch?v=9NAKCyOtFH0"
+  },
+  {
+    "id": "v6ht9efsnRI",
+    "title": "Email Security - CompTIA Security+ SY0-701 - 4.5",
+    "domain": 4,
+    "objective": "4.5",
+    "position": 93,
+    "durationSec": 425,
+    "url": "https://www.youtube.com/watch?v=v6ht9efsnRI"
+  },
+  {
+    "id": "ZDJ-BLPLWq4",
+    "title": "Monitoring Data - CompTIA Security+ SY0-701 - 4.5",
+    "domain": 4,
+    "objective": "4.5",
+    "position": 94,
+    "durationSec": 445,
+    "url": "https://www.youtube.com/watch?v=ZDJ-BLPLWq4"
+  },
+  {
+    "id": "83pCkSSj1IQ",
+    "title": "Endpoint Security - CompTIA Security+ SY0-701 - 4.5",
+    "domain": 4,
+    "objective": "4.5",
+    "position": 95,
+    "durationSec": 565,
+    "url": "https://www.youtube.com/watch?v=83pCkSSj1IQ"
+  },
+  {
+    "id": "ZoOyyqhptik",
+    "title": "Identity and Access Management - CompTIA Security+ SY0-701 - 4.6",
+    "domain": 4,
+    "objective": "4.6",
+    "position": 96,
+    "durationSec": 766,
+    "url": "https://www.youtube.com/watch?v=ZoOyyqhptik"
+  },
+  {
+    "id": "9ANHcZwJfdQ",
+    "title": "Access Controls - CompTIA Security+ SY0-701 - 4.6",
+    "domain": 4,
+    "objective": "4.6",
+    "position": 97,
+    "durationSec": 469,
+    "url": "https://www.youtube.com/watch?v=9ANHcZwJfdQ"
+  },
+  {
+    "id": "MpIzA4fNWew",
+    "title": "Multifactor Authentication - CompTIA Security+ SY0-701 - 4.6",
+    "domain": 4,
+    "objective": "4.6",
+    "position": 98,
+    "durationSec": 270,
+    "url": "https://www.youtube.com/watch?v=MpIzA4fNWew"
+  },
+  {
+    "id": "eMOe-PLBy1k",
+    "title": "Password Security - CompTIA Security+ SY0-701 - 4.6",
+    "domain": 4,
+    "objective": "4.6",
+    "position": 99,
+    "durationSec": 382,
+    "url": "https://www.youtube.com/watch?v=eMOe-PLBy1k"
+  },
+  {
+    "id": "R9ojg881dLs",
+    "title": "Scripting and Automation - CompTIA Security+ SY0-701 - 4.7",
+    "domain": 4,
+    "objective": "4.7",
+    "position": 100,
+    "durationSec": 500,
+    "url": "https://www.youtube.com/watch?v=R9ojg881dLs"
+  },
+  {
+    "id": "X2UiMLxRdhE",
+    "title": "Incident Response - CompTIA Security+ SY0-701 - 4.8",
+    "domain": 4,
+    "objective": "4.8",
+    "position": 101,
+    "durationSec": 554,
+    "url": "https://www.youtube.com/watch?v=X2UiMLxRdhE"
+  },
+  {
+    "id": "CYFe16lCRMk",
+    "title": "Incident Planning - CompTIA Security+ SY0-701 - 4.8",
+    "domain": 4,
+    "objective": "4.8",
+    "position": 102,
+    "durationSec": 410,
+    "url": "https://www.youtube.com/watch?v=CYFe16lCRMk"
+  },
+  {
+    "id": "UtDWApdO8Zk",
+    "title": "Digital Forensics - CompTIA Security+ SY0-701 - 4.8",
+    "domain": 4,
+    "objective": "4.8",
+    "position": 103,
+    "durationSec": 594,
+    "url": "https://www.youtube.com/watch?v=UtDWApdO8Zk"
+  },
+  {
+    "id": "EDru1LTYDJw",
+    "title": "Log Data - CompTIA Security+ SY0-701 - 4.9",
+    "domain": 4,
+    "objective": "4.9",
+    "position": 104,
+    "durationSec": 821,
+    "url": "https://www.youtube.com/watch?v=EDru1LTYDJw"
+  },
+  {
+    "id": "5kY9kvzeWjA",
+    "title": "Security Policies - CompTIA Security+ SY0-701 - 5.1",
+    "domain": 5,
+    "objective": "5.1",
+    "position": 105,
+    "durationSec": 662,
+    "url": "https://www.youtube.com/watch?v=5kY9kvzeWjA"
+  },
+  {
+    "id": "jBvdRpXaomk",
+    "title": "Security Standards - CompTIA Security+ SY0-701 - 5.1",
+    "domain": 5,
+    "objective": "5.1",
+    "position": 106,
+    "durationSec": 336,
+    "url": "https://www.youtube.com/watch?v=jBvdRpXaomk"
+  },
+  {
+    "id": "vJINnOZyQNg",
+    "title": "Security Procedures - CompTIA Security+ SY0-701 - 5.1",
+    "domain": 5,
+    "objective": "5.1",
+    "position": 107,
+    "durationSec": 422,
+    "url": "https://www.youtube.com/watch?v=vJINnOZyQNg"
+  },
+  {
+    "id": "4tGFraaP48Q",
+    "title": "Security Considerations - CompTIA Security+ SY0-701 - 5.1",
+    "domain": 5,
+    "objective": "5.1",
+    "position": 108,
+    "durationSec": 292,
+    "url": "https://www.youtube.com/watch?v=4tGFraaP48Q"
+  },
+  {
+    "id": "gxNi-04yP8Q",
+    "title": "Data Roles and Responsibilities - CompTIA Security+ SY0-701 - 5.1",
+    "domain": 5,
+    "objective": "5.1",
+    "position": 109,
+    "durationSec": 147,
+    "url": "https://www.youtube.com/watch?v=gxNi-04yP8Q"
+  },
+  {
+    "id": "cLhUMoQS1a8",
+    "title": "Risk Management - CompTIA Security+ SY0-701 - 5.2",
+    "domain": 5,
+    "objective": "5.2",
+    "position": 110,
+    "durationSec": 210,
+    "url": "https://www.youtube.com/watch?v=cLhUMoQS1a8"
+  },
+  {
+    "id": "Ykx7t54y-oo",
+    "title": "Risk Analysis - CompTIA Security+ SY0-701 - 5.2",
+    "domain": 5,
+    "objective": "5.2",
+    "position": 111,
+    "durationSec": 553,
+    "url": "https://www.youtube.com/watch?v=Ykx7t54y-oo"
+  },
+  {
+    "id": "pmyuWY7Pbag",
+    "title": "Risk Management Strategies - CompTIA Security+ SY0-701 - 5.2",
+    "domain": 5,
+    "objective": "5.2",
+    "position": 112,
+    "durationSec": 192,
+    "url": "https://www.youtube.com/watch?v=pmyuWY7Pbag"
+  },
+  {
+    "id": "myI-v3mj7Kc",
+    "title": "Business Impact Analysis - CompTIA Security+ SY0-701 - 5.2",
+    "domain": 5,
+    "objective": "5.2",
+    "position": 113,
+    "durationSec": 175,
+    "url": "https://www.youtube.com/watch?v=myI-v3mj7Kc"
+  },
+  {
+    "id": "13KNjPexnEI",
+    "title": "Third-party Risk Assessment - CompTIA Security+ SY0-701 - 5.3",
+    "domain": 5,
+    "objective": "5.3",
+    "position": 114,
+    "durationSec": 696,
+    "url": "https://www.youtube.com/watch?v=13KNjPexnEI"
+  },
+  {
+    "id": "HSZxjj1YAh8",
+    "title": "Agreement Types - CompTIA Security+ SY0-701 - 5.3",
+    "domain": 5,
+    "objective": "5.3",
+    "position": 115,
+    "durationSec": 319,
+    "url": "https://www.youtube.com/watch?v=HSZxjj1YAh8"
+  },
+  {
+    "id": "IjJf4jLtONQ",
+    "title": "Compliance - CompTIA Security+ SY0-701 - 5.4",
+    "domain": 5,
+    "objective": "5.4",
+    "position": 116,
+    "durationSec": 486,
+    "url": "https://www.youtube.com/watch?v=IjJf4jLtONQ"
+  },
+  {
+    "id": "WGXrbAh0LUI",
+    "title": "Privacy - CompTIA Security+ SY0-701 - 5.4",
+    "domain": 5,
+    "objective": "5.4",
+    "position": 117,
+    "durationSec": 322,
+    "url": "https://www.youtube.com/watch?v=WGXrbAh0LUI"
+  },
+  {
+    "id": "uo2Yw720mv4",
+    "title": "Audits and Assessments - CompTIA Security+ SY0-701 - 5.5",
+    "domain": 5,
+    "objective": "5.5",
+    "position": 118,
+    "durationSec": 169,
+    "url": "https://www.youtube.com/watch?v=uo2Yw720mv4"
+  },
+  {
+    "id": "wEMzVfwBiWY",
+    "title": "Penetration Tests - CompTIA Security+ SY0-701 - 5.5",
+    "domain": 5,
+    "objective": "5.5",
+    "position": 119,
+    "durationSec": 329,
+    "url": "https://www.youtube.com/watch?v=wEMzVfwBiWY"
+  },
+  {
+    "id": "W_Npxwk4fbI",
+    "title": "Security Awareness - CompTIA Security+ SY0-701 - 5.6",
+    "domain": 5,
+    "objective": "5.6",
+    "position": 120,
+    "durationSec": 405,
+    "url": "https://www.youtube.com/watch?v=W_Npxwk4fbI"
+  },
+  {
+    "id": "WQRZMMLUkGE",
+    "title": "User Training - CompTIA Security+ SY0-701 - 5.6",
+    "domain": 5,
+    "objective": "5.6",
+    "position": 121,
+    "durationSec": 271,
+    "url": "https://www.youtube.com/watch?v=WQRZMMLUkGE"
+  }
+]
