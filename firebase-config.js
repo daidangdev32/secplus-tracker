@@ -10,12 +10,13 @@
 // Replace every "PASTE_..." string below, then save. Nothing else needs editing.
 
 export const firebaseConfig = {
-  apiKey: "PASTE_API_KEY",
-  authDomain: "PASTE_PROJECT_ID.firebaseapp.com",
-  projectId: "PASTE_PROJECT_ID",
-  storageBucket: "PASTE_PROJECT_ID.appspot.com",
-  messagingSenderId: "PASTE_SENDER_ID",
-  appId: "PASTE_APP_ID",
+  apiKey: "AIzaSyA3ZrPX9PqKh3qArFhiZhltj6w7uj5NnNI",
+  authDomain: "test-d4e75.firebaseapp.com",
+  projectId: "test-d4e75",
+  storageBucket: "test-d4e75.firebasestorage.app",
+  messagingSenderId: "899770605854",
+  appId: "1:899770605854:web:687b4825bd8f6c5678a90f",
+  measurementId: "G-761M8N5LR2",
 };
 
 // Quick check used by the app to show a helpful message if you forgot to fill
