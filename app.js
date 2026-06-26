@@ -290,7 +290,7 @@ function renderToday() {
   let html = `<div class="masthead">
       <div class="masthead-eyebrow eyebrow"><span>Exam</span><span class="dot-sep">·</span><span>${fmtDatePretty(exam)}</span></div>
       <div class="masthead-figure">
-        <div class="masthead-num">${Math.abs(dExam)}</div>
+        <div class="masthead-num"><span class="num" data-key="countdown" data-count="${Math.abs(dExam)}">${Math.abs(dExam)}</span></div>
         <div class="masthead-unit"><span class="u-big">days</span><span class="u-small">${passed ? "ago" : "to go"}</span></div>
       </div>
       <div class="masthead-cap">${cap}</div>
@@ -316,9 +316,9 @@ function renderToday() {
 
   // Operational ledger — pace, progress, streak as typographic figures.
   html += `<div class="ledger">
-    <div class="ledger-cell"><div class="ledger-num gold">${pace}</div><div class="ledger-label">min/day to finish</div></div>
-    <div class="ledger-cell"><div class="ledger-num">${watchedCount}<span class="of">/${total}</span></div><div class="ledger-label">watched</div></div>
-    <div class="ledger-cell"><div class="ledger-num">${streak()}</div><div class="ledger-label">day streak</div></div>
+    <div class="ledger-cell"><div class="ledger-num gold"><span class="num" data-key="pace" data-count="${pace}">${pace}</span></div><div class="ledger-label">min/day to finish</div></div>
+    <div class="ledger-cell"><div class="ledger-num"><span class="num" data-key="watched" data-count="${watchedCount}">${watchedCount}</span><span class="of">/${total}</span></div><div class="ledger-label">watched</div></div>
+    <div class="ledger-cell"><div class="ledger-num"><span class="num" data-key="streak" data-count="${streak()}">${streak()}</span></div><div class="ledger-label">day streak</div></div>
   </div>`;
 
   if (due.length) {
@@ -370,7 +370,7 @@ function renderRoadmap() {
   let html = `<div class="masthead">
       <div class="masthead-eyebrow eyebrow"><span>Readiness</span></div>
       <div class="masthead-figure">
-        <div class="masthead-num gold">${readinessPct()}<span class="masthead-pct">%</span></div>
+        <div class="masthead-num gold"><span class="num" data-key="readiness" data-count="${readinessPct()}">${readinessPct()}</span><span class="masthead-pct">%</span></div>
       </div>
       <div class="masthead-cap">Watching <em>≠</em> ready — keep this honest with practice tests. ${totalLeftSec ? "<strong>" + fmtHoursLeft(totalLeftSec) + "</strong> of video left." : "Every video watched."}</div>
     </div>`;
@@ -477,16 +477,62 @@ function weakCard(v, scheduled) {
   </div>`;
 }
 
-function render() {
-  if (!state.ready) {
-    view().innerHTML = `<div class="empty"><p>Syncing your data…</p></div>`;
-    return;
+// --- Number count-up (visual only) -----------------------------------------
+// Animate a counter from `from` to `to`. Purely cosmetic; the rendered markup
+// already contains the final value, so this never affects logic or data.
+let pendingCountAnim = true;     // animate on first paint and on tab entry
+const lastCounts = {};
+
+function animateNumber(el, from, to, dur) {
+  const start = performance.now();
+  const ease = (t) => 1 - Math.pow(1 - t, 3); // easeOutCubic
+  function frame(now) {
+    const t = Math.min(1, (now - start) / dur);
+    el.textContent = String(Math.round(from + (to - from) * ease(t)));
+    if (t < 1) requestAnimationFrame(frame);
+    else el.textContent = String(to);
   }
+  requestAnimationFrame(frame);
+}
+
+function runCountUps() {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const tabEnter = pendingCountAnim;
+  pendingCountAnim = false;
+  view().querySelectorAll(".num[data-count]").forEach((el) => {
+    const to = Number(el.dataset.count);
+    const key = el.dataset.key || "n";
+    const prev = lastCounts[key];
+    lastCounts[key] = to;
+    if (Number.isNaN(to)) return;
+    const first = prev === undefined;
+    const from = first ? 0 : prev;
+    // Animate on a tab's first paint, or whenever the value genuinely changed.
+    if (!reduce && from !== to && (tabEnter || !first)) animateNumber(el, from, to, 650);
+    else el.textContent = String(to);
+  });
+}
+
+// Skeleton shimmer of the Today layout while the first Firestore snapshot loads.
+function renderSkeleton() {
+  view().innerHTML =
+    `<div class="masthead">
+       <div class="sk sk-eyebrow"></div>
+       <div class="sk sk-figure" style="margin-top:14px"></div>
+       <div class="sk sk-line" style="margin-top:18px"></div>
+     </div>
+     <div class="sk sk-card"></div>
+     <div class="sk sk-ledger" style="margin-top:14px"></div>`;
+}
+
+function render() {
+  if (!state.ready) { renderSkeleton(); return; }
   document.querySelectorAll(".tab").forEach((b) =>
     b.setAttribute("aria-selected", String(b.dataset.tab === state.tab)));
   if (state.tab === "today") renderToday();
   else if (state.tab === "roadmap") renderRoadmap();
   else renderWeakspots();
+  runCountUps();
 }
 
 // ---------------------------------------------------------------------------
@@ -507,7 +553,7 @@ function showToast(msg, good = false) {
 // ---------------------------------------------------------------------------
 function onClick(e) {
   const tab = e.target.closest("[data-tab]");
-  if (tab) { state.tab = tab.dataset.tab; render(); window.scrollTo(0, 0); return; }
+  if (tab) { state.tab = tab.dataset.tab; pendingCountAnim = true; render(); window.scrollTo(0, 0); return; }
 
   const el = e.target.closest("[data-action]");
   if (!el) return;

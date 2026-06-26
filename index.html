@@ -8,11 +8,12 @@
   <meta name="color-scheme" content="dark" />
   <meta name="description" content="Study tracker for the Professor Messer CompTIA Security+ SY0-701 playlist." />
 
-  <!-- Type: Fraunces (expressive serif display, for the big numbers) + Hanken
-       Grotesk (clean body). Data/labels use the system monospace stack. -->
+  <!-- Type: Inter Variable (UI/body, variable optical size + weight) for the
+       clean system; Fraunces kept only for the signature numerals (the exam
+       countdown / readiness) so the hero stays distinctive, not templated. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=Fraunces:opsz,wght@9..144,400..600&display=swap" />
 
   <!-- iOS: launch full-screen from the home screen with our own status bar style -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -27,10 +28,21 @@
   <title>SecPlus Tracker</title>
 </head>
 <body>
-  <!-- Boot / loading state, shown until we know whether the user is signed in. -->
+  <!-- Fixed grain overlay: sits above the background wash, below content, kills
+       color banding on the dark gradients. Decorative, never interactive. -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Boot / loading state, shown until we know whether the user is signed in.
+       A skeleton of the Today layout rather than a bare "Loading…" word. -->
   <div id="boot" class="boot">
-    <div class="boot-mark" aria-hidden="true"></div>
-    <p id="boot-msg">Loading…</p>
+    <div class="boot-skeleton" aria-hidden="true">
+      <div class="sk sk-eyebrow"></div>
+      <div class="sk sk-figure"></div>
+      <div class="sk sk-line"></div>
+      <div class="sk sk-card"></div>
+      <div class="sk sk-ledger"></div>
+    </div>
+    <p id="boot-msg" class="sr-status">Loading…</p>
   </div>
 
   <!-- Sign-in screen. The app does not work anonymously: cross-device sync needs
