@@ -4,8 +4,15 @@
   <meta charset="UTF-8" />
   <!-- viewport-fit=cover lets us pad around the iPhone notch / home indicator -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0b0f1d" />
+  <meta name="theme-color" content="#0b0e13" />
+  <meta name="color-scheme" content="dark" />
   <meta name="description" content="Study tracker for the Professor Messer CompTIA Security+ SY0-701 playlist." />
+
+  <!-- Type: Fraunces (expressive serif display, for the big numbers) + Hanken
+       Grotesk (clean body). Data/labels use the system monospace stack. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" />
 
   <!-- iOS: launch full-screen from the home screen with our own status bar style -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +38,8 @@
   <section id="signin" class="signin" hidden>
     <div class="signin-card">
       <div class="brand-mark" aria-hidden="true"></div>
-      <h1>SecPlus Tracker</h1>
+      <p class="eyebrow" style="margin-bottom:14px">CompTIA Security+ · SY0-701</p>
+      <h1>SecPlus <em>Tracker</em></h1>
       <p class="signin-sub">Work the Professor Messer <strong>SY0-701</strong> playlist, track your
         confidence, and review your weak spots — synced across your iPhone and iPad.</p>
       <button id="signin-btn" class="btn-primary btn-google">

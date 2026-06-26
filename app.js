@@ -277,10 +277,24 @@ function renderToday() {
   const fresh = newToday();
   const hero = due[0] || fresh[0] || null;
   const pace = paceMinutes();
+  const total = state.videos.length;
   const watchedCount = state.videos.filter((v) => prog(v.id).watched).length;
-  const dExam = daysUntil(state.settings.examDate || defaultSettings().examDate);
+  const exam = state.settings.examDate || defaultSettings().examDate;
+  const dExam = daysUntil(exam);
 
-  let html = "";
+  // Signature masthead — the exam countdown as oversized serif numerals.
+  const passed = dExam < 0;
+  const cap = passed
+    ? `Deadline passed — set a new date in settings. You're <strong>${readinessPct()}% ready</strong>.`
+    : `You're <strong>${readinessPct()}% ready</strong>. ${secsLeft() ? fmtHoursLeft(secsLeft()) + " of video left." : "Every video watched."}`;
+  let html = `<div class="masthead">
+      <div class="masthead-eyebrow eyebrow"><span>Exam</span><span class="dot-sep">·</span><span>${fmtDatePretty(exam)}</span></div>
+      <div class="masthead-figure">
+        <div class="masthead-num">${Math.abs(dExam)}</div>
+        <div class="masthead-unit"><span class="u-big">days</span><span class="u-small">${passed ? "ago" : "to go"}</span></div>
+      </div>
+      <div class="masthead-cap">${cap}</div>
+    </div>`;
 
   if (hero) {
     const isReview = !!due[0];
@@ -296,20 +310,19 @@ function renderToday() {
       ${ratingRow(hero.id, prog(hero.id).rating, { revealed })}
     </div>`;
   } else {
-    html += `<div class="card empty"><div class="empty-mark">✓</div>
+    html += `<div class="card empty"><div class="empty-mark">Done</div>
       <strong>All caught up.</strong><br/>Nothing due and every video watched. Go take a practice test.</div>`;
   }
 
-  // Stat strip
-  html += `<div class="stats">
-    <div class="stat"><div class="stat-num accent">${pace}</div><div class="stat-label">min/day to finish</div></div>
-    <div class="stat"><div class="stat-num">${watchedCount}<span style="color:var(--faint);font-size:.8rem">/${state.videos.length}</span></div><div class="stat-label">videos watched</div></div>
-    <div class="stat"><div class="stat-num">${streak()}🔥</div><div class="stat-label">day streak</div></div>
-    <div class="stat"><div class="stat-num">${dExam >= 0 ? dExam + "d" : "—"}</div><div class="stat-label">to exam</div></div>
+  // Operational ledger — pace, progress, streak as typographic figures.
+  html += `<div class="ledger">
+    <div class="ledger-cell"><div class="ledger-num gold">${pace}</div><div class="ledger-label">min/day to finish</div></div>
+    <div class="ledger-cell"><div class="ledger-num">${watchedCount}<span class="of">/${total}</span></div><div class="ledger-label">watched</div></div>
+    <div class="ledger-cell"><div class="ledger-num">${streak()}</div><div class="ledger-label">day streak</div></div>
   </div>`;
 
   if (due.length) {
-    html += `<div class="section-title">Due for review (${due.length})</div>`;
+    html += `<div class="section-title">Due for review <span class="count">${due.length}</span></div>`;
     html += due.map((v) => videoRow(v, { showRating: true })).join("");
   }
 
@@ -354,10 +367,12 @@ function noteField(id, note) {
 // ---- Tab: Roadmap ----
 function renderRoadmap() {
   const totalLeftSec = unwatched().reduce((s, v) => s + (v.durationSec || 0), 0);
-  let html = `<div class="card readiness">
-      <div class="readiness-num">${readinessPct()}%</div>
-      <div class="readiness-cap">Readiness — watching ≠ ready. Keep this honest with practice tests.</div>
-      <div class="readiness-left">${totalLeftSec ? fmtHoursLeft(totalLeftSec) + " of video left" : "All videos watched"}</div>
+  let html = `<div class="masthead">
+      <div class="masthead-eyebrow eyebrow"><span>Readiness</span></div>
+      <div class="masthead-figure">
+        <div class="masthead-num gold">${readinessPct()}<span class="masthead-pct">%</span></div>
+      </div>
+      <div class="masthead-cap">Watching <em>≠</em> ready — keep this honest with practice tests. ${totalLeftSec ? "<strong>" + fmtHoursLeft(totalLeftSec) + "</strong> of video left." : "Every video watched."}</div>
     </div>`;
 
   // Study-planning card: time per concept + daily study needed to hit the deadline.

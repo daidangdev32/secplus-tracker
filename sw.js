@@ -3,7 +3,7 @@
 // (via its IndexedDB cache); here we just make sure the HTML/CSS/JS and the
 // Firebase SDK modules are available without the network.
 
-const VERSION = "v3";
+const VERSION = "v4";
 const SHELL_CACHE = `secplus-shell-${VERSION}`;
 const RUNTIME_CACHE = `secplus-runtime-${VERSION}`;
 
@@ -45,6 +45,14 @@ self.addEventListener("fetch", (event) => {
   if (req.method !== "GET") return; // never cache writes
 
   const url = new URL(req.url);
+
+  // Google Fonts (stylesheet + font files): cache-first so type works offline.
+  // Checked BEFORE the Firebase rule below, which would otherwise swallow
+  // fonts.googleapis.com via its `.googleapis.com` match.
+  if (url.hostname === "fonts.googleapis.com" || url.hostname === "fonts.gstatic.com") {
+    event.respondWith(cacheFirst(req, RUNTIME_CACHE));
+    return;
+  }
 
   // Firebase data/auth APIs: always go to the network (Firestore caches its own
   // data). Don't intercept these.
