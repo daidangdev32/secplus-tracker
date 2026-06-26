@@ -501,11 +501,6 @@ function closeSheet() { $("#settings-sheet").hidden = true; }
 // Auth
 // ---------------------------------------------------------------------------
 const provider = new GoogleAuthProvider();
-const isStandalone = () =>
-  matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
-const isIOS = () =>
-  /iP(hone|ad|od)/.test(navigator.userAgent) ||
-  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
 function signinError(e) {
   const map = {
@@ -523,15 +518,20 @@ function signinError(e) {
 
 async function doSignIn() {
   $("#signin-error").hidden = true;
-  // iOS / installed PWA: popups are unreliable, so prefer a full-page redirect.
-  if (isStandalone() || isIOS()) {
-    try { await signInWithRedirect(auth, provider); } catch (e) { signinError(e); }
-    return;
-  }
+  // Popup-first on EVERY platform, including iOS Safari. signInWithRedirect
+  // bounces through {project}.firebaseapp.com; Safari's storage partitioning
+  // (ITP) drops the pending-auth state on the way back, so the user returns
+  // still signed out. signInWithPopup completes via postMessage from the popup
+  // and sidesteps that. It must be called directly in the click gesture (it is)
+  // so Safari's pop-up blocker allows it.
   try {
     await signInWithPopup(auth, provider);
   } catch (e) {
-    if (["auth/popup-blocked", "auth/cancelled-popup-request", "auth/operation-not-supported-in-this-environment", "auth/popup-closed-by-user"].includes(e.code)) {
+    if (e.code === "auth/popup-closed-by-user" || e.code === "auth/cancelled-popup-request") {
+      return; // user dismissed it — not an error
+    }
+    // Popup genuinely unavailable (e.g. blocked): fall back to redirect.
+    if (["auth/popup-blocked", "auth/operation-not-supported-in-this-environment"].includes(e.code)) {
       try { await signInWithRedirect(auth, provider); } catch (e2) { signinError(e2); }
     } else {
       signinError(e);
