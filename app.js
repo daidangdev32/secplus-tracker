@@ -99,11 +99,42 @@ function weakspots() {
   return state.videos.filter((v) => { const p = prog(v.id); return !p.mastered && p.rating >= 1 && p.rating <= 3; });
 }
 
-// Pace: minutes/day needed to finish all unwatched video by the exam date.
-function paceMinutes() {
-  const totalSec = unwatched().reduce((s, v) => s + (v.durationSec || 0), 0);
-  const days = Math.max(1, daysUntil(state.settings.examDate || defaultSettings().examDate));
-  return Math.ceil(totalSec / 60 / days);
+// Seconds of unwatched video remaining in the whole course.
+function secsLeft() {
+  return unwatched().reduce((s, v) => s + (v.durationSec || 0), 0);
+}
+
+// Minutes/day of study needed to finish all unwatched video by `examDateISO`.
+// (Clamp days to ≥1 so a today/past deadline doesn't divide by zero.)
+function dailyMinutesToFinish(examDateISO) {
+  const days = Math.max(1, daysUntil(examDateISO || defaultSettings().examDate));
+  return Math.ceil(secsLeft() / 60 / days);
+}
+
+// Pace = the daily-study target for the saved exam date. Drives Today's batch.
+function paceMinutes() { return dailyMinutesToFinish(state.settings.examDate); }
+
+// Average length of one concept (video) across the whole course.
+function avgConceptMinutes() {
+  if (!state.videos.length) return 0;
+  const total = state.videos.reduce((s, v) => s + (v.durationSec || 0), 0);
+  return Math.max(1, Math.round(total / state.videos.length / 60));
+}
+
+function fmtDatePretty(iso) {
+  try { return fromISO(iso).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); }
+  catch { return iso; }
+}
+
+// One-sentence study plan: how much to study per day to finish by the deadline.
+function studyPlanText(examDateISO) {
+  const n = unwatched().length;
+  if (!n) return "All videos watched — you've finished the playlist. 🎉";
+  const days = daysUntil(examDateISO);
+  if (days < 0) return "That deadline has passed — pick a future date to get a daily target.";
+  const d = Math.max(1, days);
+  return `Study ~${dailyMinutesToFinish(examDateISO)} min/day to finish by ${fmtDatePretty(examDateISO)} — ` +
+    `${n} video${n === 1 ? "" : "s"} (${fmtHoursLeft(secsLeft())}) over ${d} day${d === 1 ? "" : "s"}.`;
 }
 
 // Today's new batch: next unwatched videos in order until summed minutes ≥ pace (≥1 video).
@@ -271,7 +302,7 @@ function renderToday() {
 
   // Stat strip
   html += `<div class="stats">
-    <div class="stat"><div class="stat-num accent">${pace}</div><div class="stat-label">min to stay on pace</div></div>
+    <div class="stat"><div class="stat-num accent">${pace}</div><div class="stat-label">min/day to finish</div></div>
     <div class="stat"><div class="stat-num">${watchedCount}<span style="color:var(--faint);font-size:.8rem">/${state.videos.length}</span></div><div class="stat-label">videos watched</div></div>
     <div class="stat"><div class="stat-num">${streak()}🔥</div><div class="stat-label">day streak</div></div>
     <div class="stat"><div class="stat-num">${dExam >= 0 ? dExam + "d" : "—"}</div><div class="stat-label">to exam</div></div>
@@ -327,6 +358,33 @@ function renderRoadmap() {
       <div class="readiness-num">${readinessPct()}%</div>
       <div class="readiness-cap">Readiness — watching ≠ ready. Keep this honest with practice tests.</div>
       <div class="readiness-left">${totalLeftSec ? fmtHoursLeft(totalLeftSec) + " of video left" : "All videos watched"}</div>
+    </div>`;
+
+  // Study-planning card: time per concept + daily study needed to hit the deadline.
+  const left = unwatched().length;
+  const exam = state.settings.examDate || defaultSettings().examDate;
+  const dleft = daysUntil(exam);
+  let dailyVal, dailyNote;
+  if (!left) {
+    dailyVal = "Done"; dailyNote = "every video watched — go take a practice test";
+  } else if (dleft < 0) {
+    dailyVal = `~${dailyMinutesToFinish(exam)} min`;
+    dailyNote = `deadline (${fmtDatePretty(exam)}) has passed — set a new date in settings`;
+  } else {
+    dailyVal = `~${dailyMinutesToFinish(exam)} min`;
+    dailyNote = `to finish ${left} video${left === 1 ? "" : "s"} (${fmtHoursLeft(secsLeft())}) by ${fmtDatePretty(exam)}`;
+  }
+  html += `<div class="card plan">
+      <div class="plan-row">
+        <span class="plan-label">Time per concept</span>
+        <span class="plan-val">≈ ${avgConceptMinutes()} min</span>
+        <span class="plan-note">average across ${state.videos.length} concepts</span>
+      </div>
+      <div class="plan-row">
+        <span class="plan-label">Daily study to finish</span>
+        <span class="plan-val">${dailyVal}${left ? "/day" : ""}</span>
+        <span class="plan-note">${dailyNote}</span>
+      </div>
     </div>`;
 
   const domains = [...new Set(state.videos.map((v) => v.domain))].sort((a, b) => a - b);
@@ -477,10 +535,19 @@ function onClick(e) {
 }
 
 function onChange(e) {
+  // Exam date has no data-action, so handle it before the delegation lookup.
+  if (e.target.id === "exam-date") { saveExamDate(e.target.value); return; }
   const el = e.target.closest("[data-action]");
   if (!el) return;
   if (el.dataset.action === "note-input") saveNote(el.dataset.id, el.value);
-  if (el.id === "exam-date") saveExamDate(el.value);
+}
+
+// Live: update the study-plan readout as the exam date is being picked.
+function onInput(e) {
+  if (e.target.id === "exam-date") {
+    const p = $("#study-plan");
+    if (p) p.textContent = studyPlanText(e.target.value || state.settings.examDate);
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -493,6 +560,7 @@ function openSheet() {
   row.innerHTML = u
     ? `${u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer"/>` : ""}<span>${esc(u.displayName || u.email || "Signed in")}</span>`
     : "";
+  $("#study-plan").textContent = studyPlanText(state.settings.examDate || defaultSettings().examDate);
   $("#settings-sheet").hidden = false;
 }
 function closeSheet() { $("#settings-sheet").hidden = true; }
@@ -580,6 +648,7 @@ async function boot() {
   // Wire UI that exists regardless of auth state.
   document.addEventListener("click", onClick);
   document.addEventListener("change", onChange);
+  document.addEventListener("input", onInput);
   $("#signin-btn").addEventListener("click", doSignIn);
   $("#settings-btn").addEventListener("click", openSheet);
   $("#signout-btn").addEventListener("click", () => { closeSheet(); signOut(auth); });

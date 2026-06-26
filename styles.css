@@ -290,6 +290,20 @@ a { color: var(--accent); }
 .readiness-cap { color: var(--muted); font-size: 0.85rem; margin-top: 8px; }
 .readiness-left { color: var(--faint); font-size: 0.8rem; margin-top: 6px; }
 
+/* Study-plan card: time per concept + daily study to deadline */
+.plan { display: flex; flex-direction: column; gap: 14px; }
+.plan-row { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 2px 12px; }
+.plan-label { font-weight: 600; font-size: 0.95rem; }
+.plan-val { font-size: 1.15rem; font-weight: 700; color: var(--accent); text-align: right; white-space: nowrap; }
+.plan-note { grid-column: 1 / -1; font-size: 0.78rem; color: var(--faint); }
+
+/* Live daily-study readout inside the settings sheet */
+.study-plan {
+  font-size: 0.84rem; color: var(--accent); line-height: 1.45;
+  background: var(--accent-soft); padding: 11px 13px; border-radius: 10px;
+  margin: 0 0 18px;
+}
+
 .domain {
   background: var(--bg-2); border: 1px solid var(--border);
   border-radius: var(--radius); margin-bottom: 12px; overflow: hidden;
