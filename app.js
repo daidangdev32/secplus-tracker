@@ -525,6 +525,72 @@ function renderSkeleton() {
      <div class="sk sk-ledger" style="margin-top:14px"></div>`;
 }
 
+// --- Motion: tab transitions, scroll reveal, swipe (all visual only) --------
+const TAB_ORDER = ["today", "roadmap", "weakspots"];
+const EASE_OUT = "cubic-bezier(0.16, 1, 0.3, 1)";
+const prefersReduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+let entranceAnim = true;   // run the entrance choreography on next render
+let currentDir = 0;        // -1 / +1 horizontal hint for swipe direction
+let switching = false;
+
+// Reveal below-the-fold items as they scroll into view.
+const revealObs = ("IntersectionObserver" in window)
+  ? new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); revealObs.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -6% 0px", threshold: 0.08 })
+  : null;
+
+// Choreograph a freshly-rendered view: stagger the visible items in (with an
+// optional horizontal slide for swipes); hand the rest to the scroll observer.
+function afterRender(dir) {
+  const items = [...view().children];
+  if (!entranceAnim) {              // in-tab re-renders just update, no replay
+    items.forEach((el) => el.classList.remove("reveal"));
+    return;
+  }
+  entranceAnim = false;
+  if (prefersReduced()) return;     // honor reduced motion: no movement
+  const vh = window.innerHeight || 800;
+  items.forEach((el, i) => {
+    // Items below the fold reveal on scroll; the rest animate in now. (The
+    // WAAPI animation is created synchronously, so its backwards fill holds
+    // opacity 0 from the first paint — no flash.)
+    if (el.getBoundingClientRect().top > vh && revealObs) {
+      el.classList.add("reveal");
+      revealObs.observe(el);
+    } else {
+      el.animate(
+        [{ opacity: 0, transform: `translate(${dir * 24}px, 16px)` }, { opacity: 1, transform: "translate(0,0)" }],
+        { duration: 460, delay: Math.min(i, 6) * 45, easing: EASE_OUT, fill: "backwards" }
+      );
+    }
+  });
+  // Failsafe: never leave an in-view item stuck hidden, whatever the observer does.
+  setTimeout(() => {
+    view().querySelectorAll(".reveal:not(.in)").forEach((el) => {
+      if (el.getBoundingClientRect().top < (window.innerHeight || 800)) el.classList.add("in");
+    });
+  }, 1200);
+}
+
+// Switch tabs with a directional cross-fade + slide (used by taps and swipes).
+function switchTab(next) {
+  if (switching || next === state.tab || !state.ready) return;
+  const from = TAB_ORDER.indexOf(state.tab), to = TAB_ORDER.indexOf(next);
+  if (to < 0) return;
+  currentDir = to > from ? 1 : -1;
+  const commit = () => {
+    state.tab = next; pendingCountAnim = true; entranceAnim = true;
+    window.scrollTo({ top: 0, behavior: "instant" });
+    render();
+  };
+  if (prefersReduced()) { commit(); return; }
+  switching = true;
+  view().animate([{ opacity: 1 }, { opacity: 0 }], { duration: 120, easing: "cubic-bezier(0.4,0,1,1)" })
+    .finished.then(() => { commit(); switching = false; })
+    .catch(() => { commit(); switching = false; });
+}
+
 function render() {
   if (!state.ready) { renderSkeleton(); return; }
   document.querySelectorAll(".tab").forEach((b) =>
@@ -533,6 +599,8 @@ function render() {
   else if (state.tab === "roadmap") renderRoadmap();
   else renderWeakspots();
   runCountUps();
+  afterRender(currentDir);
+  currentDir = 0;
 }
 
 // ---------------------------------------------------------------------------
@@ -553,7 +621,7 @@ function showToast(msg, good = false) {
 // ---------------------------------------------------------------------------
 function onClick(e) {
   const tab = e.target.closest("[data-tab]");
-  if (tab) { state.tab = tab.dataset.tab; pendingCountAnim = true; render(); window.scrollTo(0, 0); return; }
+  if (tab) { switchTab(tab.dataset.tab); return; }
 
   const el = e.target.closest("[data-action]");
   if (!el) return;
@@ -689,10 +757,18 @@ function startListening(uid) {
   });
 }
 
+// Cross-fade between boot / sign-in / app instead of a hard swap.
 function showScreen(which) {
-  $("#boot").hidden = which !== "boot";
-  $("#signin").hidden = which !== "signin";
-  $("#app").hidden = which !== "app";
+  ["boot", "signin", "app"].forEach((k) => {
+    const el = $("#" + k);
+    if (k === which) {
+      el.hidden = false;
+      requestAnimationFrame(() => el.classList.remove("screen-out"));
+    } else if (!el.hidden) {
+      el.classList.add("screen-out");
+      setTimeout(() => { if (el.classList.contains("screen-out")) el.hidden = true; }, 420);
+    }
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -716,6 +792,39 @@ async function boot() {
   document.querySelectorAll("[data-close-sheet]").forEach((b) => b.addEventListener("click", closeSheet));
   // Re-render Today when returning from YouTube so a freshly-revealed rating is ready.
   document.addEventListener("visibilitychange", () => { if (!document.hidden && state.ready && state.tab === "today") render(); });
+
+  // Swipe left/right to move between tabs (ignored over controls / the sheet).
+  const appEl = $("#app");
+  let sx = 0, sy = 0, st = 0;
+  appEl.addEventListener("touchstart", (e) => {
+    const t = e.changedTouches[0]; sx = t.clientX; sy = t.clientY; st = Date.now();
+  }, { passive: true });
+  appEl.addEventListener("touchend", (e) => {
+    if (!$("#settings-sheet").hidden) return;
+    if (e.target.closest("textarea, input, .rate, .tabbar")) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - sx, dy = t.clientY - sy;
+    if (Date.now() - st < 800 && Math.abs(dx) > 64 && Math.abs(dx) > Math.abs(dy) * 1.7) {
+      const i = TAB_ORDER.indexOf(state.tab), ni = dx < 0 ? i + 1 : i - 1;
+      if (ni >= 0 && ni < TAB_ORDER.length) switchTab(TAB_ORDER[ni]);
+    }
+  }, { passive: true });
+
+  // Scroll: condense the top bar + subtle parallax/fade on the masthead.
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY || window.pageYOffset || 0;
+      $(".topbar")?.classList.toggle("scrolled", y > 6);
+      if (!prefersReduced()) {
+        const m = view().querySelector(".masthead");
+        if (m) { const k = Math.min(y / 260, 1); m.style.transform = `translateY(${(y * 0.14).toFixed(1)}px)`; m.style.opacity = String(1 - k * 0.6); }
+      }
+      ticking = false;
+    });
+  }, { passive: true });
 
   if (!isConfigured) {
     showScreen("signin");
