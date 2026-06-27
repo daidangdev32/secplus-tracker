@@ -156,14 +156,18 @@ a { color: var(--accent); }
 .sk-ledger { width: 100%; height: 84px; border-radius: var(--radius); }
 
 /* ---------- Brand mark ---------- */
+/* matches the app icon: deep ink, engraved gold frame, gold check */
 .brand-mark {
-  width: 54px; height: 54px; border-radius: var(--radius);
-  background: linear-gradient(155deg, var(--accent), var(--accent-deep));
-  position: relative; box-shadow: 0 14px 40px -12px var(--accent-glow);
+  width: 56px; height: 56px; border-radius: 15px;
+  background:
+    radial-gradient(120% 100% at 50% 28%, rgba(205, 176, 129, 0.12), transparent 60%),
+    linear-gradient(180deg, #161b25, #0a0d12);
+  border: 1.5px solid var(--accent);
+  position: relative; box-shadow: 0 16px 44px -18px rgba(0, 0, 0, 0.7);
 }
 .brand-mark::after {
   content: ""; position: absolute; inset: 0;
-  background: no-repeat center / 52% url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%230b0e13' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
+  background: no-repeat center / 46% url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23cdb081' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
 }
 
 /* ---------- Sign-in ---------- */
