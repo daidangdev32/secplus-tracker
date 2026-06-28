@@ -3,7 +3,7 @@
 // (via its IndexedDB cache); here we just make sure the HTML/CSS/JS and the
 // Firebase SDK modules are available without the network.
 
-const VERSION = "v8";
+const VERSION = "v9";
 const SHELL_CACHE = `secplus-shell-${VERSION}`;
 const RUNTIME_CACHE = `secplus-runtime-${VERSION}`;
 

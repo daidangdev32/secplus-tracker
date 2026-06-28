@@ -560,8 +560,11 @@ function afterRender(dir) {
       revealObs.observe(el);
     } else {
       el.animate(
-        [{ opacity: 0, transform: `translate(${dir * 24}px, 16px)` }, { opacity: 1, transform: "translate(0,0)" }],
-        { duration: 460, delay: Math.min(i, 6) * 45, easing: EASE_OUT, fill: "backwards" }
+        [
+          { opacity: 0, transform: `translate(${dir * 28}px, 22px) scale(0.985)`, filter: "blur(7px)" },
+          { opacity: 1, transform: "translate(0,0) scale(1)", filter: "blur(0)" },
+        ],
+        { duration: 620, delay: Math.min(i, 7) * 62, easing: EASE_OUT, fill: "backwards" }
       );
     }
   });
@@ -586,7 +589,7 @@ function switchTab(next) {
   };
   if (prefersReduced()) { commit(); return; }
   switching = true;
-  view().animate([{ opacity: 1 }, { opacity: 0 }], { duration: 120, easing: "cubic-bezier(0.4,0,1,1)" })
+  view().animate([{ opacity: 1 }, { opacity: 0 }], { duration: 190, easing: "cubic-bezier(0.4,0,1,1)" })
     .finished.then(() => { commit(); switching = false; })
     .catch(() => { commit(); switching = false; });
 }
@@ -820,7 +823,7 @@ async function boot() {
       $(".topbar")?.classList.toggle("scrolled", y > 6);
       if (!prefersReduced()) {
         const m = view().querySelector(".masthead");
-        if (m) { const k = Math.min(y / 260, 1); m.style.transform = `translateY(${(y * 0.14).toFixed(1)}px)`; m.style.opacity = String(1 - k * 0.6); }
+        if (m) { const k = Math.min(y / 300, 1); m.style.transform = `translateY(${(y * 0.20).toFixed(1)}px) scale(${(1 - k * 0.04).toFixed(3)})`; m.style.opacity = String(1 - k * 0.62); }
       }
       ticking = false;
     });
